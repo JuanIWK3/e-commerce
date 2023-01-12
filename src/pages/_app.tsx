@@ -4,7 +4,8 @@ import { SessionProvider } from "next-auth/react";
 
 import { api } from "../utils/api";
 
-import "../styles/globals.css";
+import "../styles/globals.scss";
+import { Navbar } from "../components/Navbar";
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -12,7 +13,10 @@ const MyApp: AppType<{ session: Session | null }> = ({
 }) => {
   return (
     <SessionProvider session={session}>
-      <Component {...pageProps} />
+      <div className="containerOuter">
+        <Navbar />
+        <Component {...pageProps} />
+      </div>
     </SessionProvider>
   );
 };
