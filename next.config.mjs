@@ -13,5 +13,8 @@ const config = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  images: {
+    domains: ["firebasestorage.googleapis.com"],
+  },
 };
 export default config;
