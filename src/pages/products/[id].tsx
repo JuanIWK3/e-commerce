@@ -15,16 +15,14 @@ const Product: NextPage = () => {
       return;
     }
 
-    const getProduct = async (id: string) => {
-      try {
-        const res = await axios.get<Product>(`/api/products/${id}`);
-        setProduct(res.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    getProduct(router.query.id as string);
+    try {
+      axios
+        .get<Product>(`/api/products/${router.query.id as string}`)
+        .then((response) => setProduct(response.data))
+        .catch((error) => console.log(error));
+    } catch (error) {
+      console.error(error);
+    }
   }, [router]);
 
   if (!product) {
