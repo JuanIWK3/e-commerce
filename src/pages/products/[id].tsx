@@ -29,10 +29,6 @@ const Product: NextPage = () => {
     getProduct();
   }, [router]);
 
-  if (!product) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <>
       <Head>
