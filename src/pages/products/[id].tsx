@@ -10,19 +10,21 @@ const Product: NextPage = () => {
 
   const router = useRouter();
 
-  const getProduct = async (id: string) => {
-    try {
-      const res = await axios.get(`/api/products/${id}`);
-      setProduct(res.data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   useEffect(() => {
-    if (router.query.id) {
-      getProduct(router.query.id as string);
+    if (!router.query.id) {
+      return;
     }
+
+    const getProduct = async (id: string) => {
+      try {
+        const res = await axios.get<Product>(`/api/products/${id}`);
+        setProduct(res.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    getProduct(router.query.id as string);
   }, [router]);
 
   if (!product) {
