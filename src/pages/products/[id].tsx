@@ -16,9 +16,10 @@ const Product: NextPage = () => {
     }
 
     const getProduct = async () => {
+      const productId = router.query.id as string;
       try {
         const response = await axios.get<Product>(
-          `/api/products/${router.query.id}`
+          `/api/products/${productId}`
         );
 
         setProduct(response.data);
