@@ -15,12 +15,10 @@ const Product: NextPage = () => {
       return;
     }
 
-    const getProduct = async () => {
+    const getProduct: () => void = async () => {
       const productId = router.query.id as string;
       try {
-        const response = await axios.get<Product>(
-          `/api/products/${productId}`
-        );
+        const response = await axios.get<Product>(`/api/products/${productId}`);
 
         setProduct(response.data);
       } catch (error) {
