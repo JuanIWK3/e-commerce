@@ -12,8 +12,8 @@ const Product: NextPage = () => {
 
   const getProduct = async (id: string) => {
     try {
-      const { data } = await axios.get(`/api/products/${id}`);
-      setProduct(data);
+      const res = await axios.get(`/api/products/${id}`);
+      setProduct(res.data);
     } catch (error) {
       console.error(error);
     }

@@ -16,8 +16,8 @@ export const ProductCard = ({ product }: { product: Product }) => {
             src={product.images[0]!}
             alt="product"
             fill={true}
-            sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
+            sizes="(max-width: 20px) 100vw,
+              (max-width: 20px) 50vw,
               33vw"
           />
         </div>
